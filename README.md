@@ -1,10 +1,10 @@
 # JS Homework nr 10
 
-HTML/css/parcel were ready. also fallowing functions where given:
+HTML/css/parcel were ready. also following functions where given:
 
-`to be written`
+`none :)`
 
-Libraries - to be written
+Libraries - Libraries - [Notiflix](https://github.com/notiflix/Notiflix#readme), [lodash.debounce](https://www.npmjs.com/package/lodash.debounce)
 
 ## Task
 
