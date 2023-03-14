@@ -12,10 +12,12 @@ const httpCodeHandler = response => {
   return response.json();
 };
 
+const setCountryList =() => {}
+const setCountryInfo =() => {}
 
 export const fetchCountries = name => {
   fetch(
-    `https://restcountries.com/v3.1/name/${name}?`,
+    `https://restcountries.com/v3.1/name/${name}?fields=name,capital,population,flags,languages`,
   )
     .then(httpCodeHandler)
     .then(data => {
@@ -27,7 +29,7 @@ export const fetchCountries = name => {
       // } else if (data.length ===1) {//display fulll (only need flag and name from sever)
 
       // }else {}
-      // Notiflix.Notify.warning('Oops, there is no country with that name');fields=name.official,capital,population,flags.svg,languages
+      // Notiflix.Notify.warning('Oops, there is no country with that name');
     })
     .catch(error =>
       console.log(
