@@ -11,7 +11,7 @@ const log = console.log;
 
 //DOM
 const searchBox = document.querySelector('#search-box');
-log(input);
+log(searchBox);
 const countryList = document.querySelector('.country-list');
 log(countryList);
 const countryInfo = document.querySelector('.country-info');
@@ -19,14 +19,17 @@ log(countryInfo);
 
 //css
 
-
 //callback/functions
-if (countryList.length > 10) {
-Notiflix.Notify.info(
-  'Too many matches found. Please enter a more specific name.',
-);} else if (countryList.length < 10 || countryList.length > 2 ) { //display list (only need flag and name from sever)
-} else {}
-Notiflix.Notify.warning('Oops, there is no country with that name');
+const fetchloader = () => {
+  const searchedName = searchBox.value;
+  fetchCountries(searchedName.trim());
+};
+// if (countryList.length > 10) {
+// Notiflix.Notify.info(
+//   'Too many matches found. Please enter a more specific name.',
+// );} else if (countryList.length < 10 || countryList.length > 2 ) { //display list (only need flag and name from sever)
+// } else {}
+// Notiflix.Notify.warning('Oops, there is no country with that name');
 // debounce(funciton, DEBOUNCE_DELAY)
 //event
-searchBox.addEventListener('input', fetchCountries);
+searchBox.addEventListener('input', debounce((fetchloader), DEBOUNCE_DELAY))
