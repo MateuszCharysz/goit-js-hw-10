@@ -1,6 +1,8 @@
 'use strict';
-const countryList = document.querySelector('.country-list');
+import Notiflix from 'notiflix';
+import 'notiflix/dist/notiflix-3.2.6.min.css';
 
+const countryList = document.querySelector('.country-list');
 const countryInfo = document.querySelector('.country-info');
 
 //help
@@ -22,14 +24,21 @@ export const fetchCountries = name => {
     .then(httpCodeHandler)
     .then(data => {
       log(data);
+      data.forEach(element => {
+        const { name, capital, population, flags, languages } = element;
+        log(name);
+        log(capital);
+        log(population);
+        log(flags);
+        log(languages);
+      });
       // if (data.length > 10) {
       // Notiflix.Notify.info(
       //   'Too many matches found. Please enter a more specific name.',
       // );} else if (data.length < 10 || data.length > 2 ) { //display list (only need flag and name from sever)
-      // } else if (data.length ===1) {//display fulll (only need flag and name from sever)
-
-      // }else {}
-      // Notiflix.Notify.warning('Oops, there is no country with that name');
+      // } else if (data.length ===1) {//display fulll
+      // }else {Notiflix.Notify.warning('Oops, there is no country with that name')}
+    ;
     })
     .catch(error =>
       console.log(

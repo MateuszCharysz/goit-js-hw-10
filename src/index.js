@@ -1,8 +1,7 @@
 import './css/styles.css';
 import debounce from 'lodash.debounce';
-import Notiflix from 'notiflix';
-import 'notiflix/dist/notiflix-3.2.6.min.css';
-import { fetchCountries, countryList } from './fetchCountries';
+
+import {fetchCountries} from './fetchCountries';
 
 const DEBOUNCE_DELAY = 300;
 
@@ -12,10 +11,10 @@ const log = console.log;
 //DOM
 const searchBox = document.querySelector('#search-box');
 log(searchBox);
-const countryList = document.querySelector('.country-list');
-log(countryList);
-const countryInfo = document.querySelector('.country-info');
-log(countryInfo);
+// const countryList = document.querySelector('.country-list');
+// log(countryList);
+// const countryInfo = document.querySelector('.country-info');
+// log(countryInfo);
 
 //css
 
