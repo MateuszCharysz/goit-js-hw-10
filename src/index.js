@@ -20,6 +20,8 @@ log(searchBox);
 
 //callback/functions
 const fetchloader = () => {
+  let listToClear = document.querySelectorAll("li")
+  listToClear.forEach(el =>el.remove())
   const searchedName = searchBox.value;
   fetchCountries(searchedName.trim());
 };
