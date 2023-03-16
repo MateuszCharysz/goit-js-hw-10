@@ -35,30 +35,20 @@ export const fetchCountries = name => {
           'Too many matches found. Please enter a more specific name.',
         );
       } else {
-        // log(data);
         const listMarkup = data
           .map(element => {
             const { name, flags } = element;
-            // log(name);
-            return `<li class="list-item" style="background-image:url(${flags.svg});background-size: auto 25px;background-repeat: no-repeat;">${name.official}</li>`;
-            // log(flags);
+            return `<li class="list-item" style="background-image:url(${flags.svg});background-size: auto 25px;background-repeat: no-repeat;" toClear>${name.official}</li>`;
           })
           .join('');
         setCountryList(listMarkup);
         if (data.length === 1) {
           const { capital, population, languages } = data[0];
-          log(capital);
-          log(population);
-          log(languages);
-          const infoMarkup = `<li class="list-item list-item--info">Capital: ${capital}</li><li class="list-item list-item--info">Population: ${population}</li><li class="list-item list-item--info">Languages: ${languages.values}</li>`;
+          const infoMarkup = `<p class="list-item list-item--info" toClear><b>Capital:</b> ${capital}</p><p class="list-item list-item--info" toClear><b>Population:</b> ${population}</p><p class="list-item list-item--info" toClear><b>Languages:</b> ${Object.values(
+            languages,
+          )}</p>`;
           setCountryInfo(infoMarkup);
         }
-        // if (data.length > 10) {
-        // Notiflix.Notify.info(
-        //   'Too many matches found. Please enter a more specific name.',
-        // );} else if (data.length < 10 || data.length > 2 ) { //display list (only need flag and name from sever)
-        // } else if (data.length ===1) {//display fulll
-        // }else {Notiflix.Notify.warning('Oops, there is no country with that name')}
       }
     })
     .catch(error =>
